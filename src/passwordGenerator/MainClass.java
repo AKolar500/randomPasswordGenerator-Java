@@ -4,7 +4,8 @@ import java.util.Random;
 
 public class MainClass {
 
-	//I want a password with a length of 8
+	//Initialize a password with a length of 8
+	//Ultimately, I want a password with a length of 8-10
 	static final int output_password_length = 8;
 	
 	public static void main(String[] args) {
