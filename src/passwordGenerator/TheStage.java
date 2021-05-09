@@ -6,9 +6,15 @@ public class TheStage {
 
 	/*Initialize a password with a length of 8
 	 *Ultimately, I want a password with a length of 8-10
+	 *Solution 1: create an array of password lengths from which to randomly choose, then call a random value
+	 * inside the password creation method, using a loop in the main method to throw the value several times
+	 * into the String method
 	 */
-	static final int output_password_length = 2;
-	//static int ouptut_password_length = randomLength();
+	/*----NEW OBJECTIVE
+	*I want this to become an application that I can use for all my saved passwords. I want to have the ability to choose a password that I want to use, assign it to a certain site (or create an entry for the site if the entry doesn't exist), and call data from the application once it's been saved.
+	*The app should call data from a MySQL database, and integrate a custom UI that I build from scratch.*/
+	//static final int output_password_length = 2;
+	static int ouptut_password_length = randomLength();
 	
 	public static void main(String[] args) {
 		//defines the characters from which the generator chooses
@@ -17,8 +23,6 @@ public class TheStage {
 		String strPossibleNums = "1234567890";
 		String strPossibleSymbs = "!@#_-";
 
-		
-		//initialize Random from the imported Random Java Utility
 		Random random = new Random();
 		
 		//display 10 passwords, just in case I don't like the first one
@@ -30,9 +34,12 @@ public class TheStage {
 
 	//create the passwords
 	private static String getNextRandomPassword(String strPossibleCaps, String strPossibleLows, String strPossibleSymbs, String strPossibleNums, Random random) {
-		StringBuilder sbRandomPassword = new StringBuilder(output_password_length);
+		StringBuilder sbRandomPassword = new StringBuilder(ouptut_password_length);
 		
-		for(int i = 0 ; i < output_password_length; i++){
+		/*incidentally, this code forces the password to adhere to a specific format.
+		* I want this because I need a minimum of 1 of each type of character
+		*/
+		for(int i = 0; i < ouptut_password_length; i++){
             
             //get next random character in the password
             int randomCap = random.nextInt(strPossibleCaps.length());
@@ -51,46 +58,27 @@ public class TheStage {
         return sbRandomPassword.toString();
 	}
 	
-	
-	//randomly assign the length of the password
-	/*public static int randomLength() {
-		int START = 8;
-		int END = 10;
-		Random r = new Random();
-		int l = randomNumber(START, END, r);*/
-		//return l;
-		
-		/*
-		final randomNumber(int aStart, int aEnd, Random r) {
-			
-			//restrict passwordLength to the 8-10 range
-			if(aStart > aEnd) {
-				
-			}
-			else {
-				return randomNumber(aStart, aEnd, r);
-			}
+	//randomize the length. HEAVILY EDIT THIS
+	/*I may need to declare and/or use the array mentioned in lines 9-11 here
+	 */
+	public static int randomLength() {
+		int START = 2;
+		int END = 3;
+		/*int differentLengths = 3;
+
+		for (int j = 0; j < differentLengths; j++){
+			randomNumber(START, END);
 		}
 		*/
-		/*
+		int l = randomNumber(START, END);
 		return l;
-	}
-	*/
 	
-	/*
-	//check if the random password length is out of range, and do something about it
-	public static int randomNumber(int aStart, int aEnd, Random r) {
-		
-		//restrict passwordLength to the 8-10 range
-		if(randomNumber(aStart, aEnd, r) > aEnd || randomNumber(aStart, aEnd, r) < aStart) {
-			//r = 8;
-			return randomNumber(aStart, aEnd, r);
-		}
-		//if passwordLength is within range
-		else {
-			return randomNumber(aStart, aEnd, r);
-		}
 	}
-	*/
-
+	
+	//force passwordLength to adhere to a range, as specified in the randomLength method
+	private static int randomNumber(int aSTART, int aEND) {
+		Random r = new Random();
+		return r.ints(aSTART, (aEND)).limit(1).findFirst().getAsInt();
+	}
+	
 }
