@@ -14,7 +14,7 @@ public class TheStage {
 	*I want this to become an application that I can use for all my saved passwords. I want to have the ability to choose a password that I want to use, assign it to a certain site (or create an entry for the site if the entry doesn't exist), and call data from the application once it's been saved.
 	*The app should call data from a MySQL database, and integrate a custom UI that I build from scratch.*/
 	//static final int output_password_length = 2;
-	static int ouptut_password_length = randomLength();
+	static int output_password_length = randomLength();
 	
 	public static void main(String[] args) {
 		//defines the characters from which the generator chooses
@@ -34,12 +34,12 @@ public class TheStage {
 
 	//create the passwords
 	private static String getNextRandomPassword(String strPossibleCaps, String strPossibleLows, String strPossibleSymbs, String strPossibleNums, Random random) {
-		StringBuilder sbRandomPassword = new StringBuilder(ouptut_password_length);
+		StringBuilder sbRandomPassword = new StringBuilder(output_password_length);
 		
 		/*incidentally, this code forces the password to adhere to a specific format.
 		* I want this because I need a minimum of 1 of each type of character
 		*/
-		for(int i = 0; i < ouptut_password_length; i++){
+		for(int i = 0; i < output_password_length; i++){
             
             //get next random character in the password
             int randomCap = random.nextInt(strPossibleCaps.length());
