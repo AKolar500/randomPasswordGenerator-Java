@@ -30,6 +30,9 @@ public class TheStage {
 		for(int i=0; i<10; i++) {
 			System.out.println( getNextRandomPassword(strPossibleCaps, strPossibleLows, strPossibleSymbs, strPossibleNums, random) );
 		}
+
+		//begin user input
+		
 	}
 
 	//create the passwords
