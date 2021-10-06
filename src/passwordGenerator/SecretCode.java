@@ -1,3 +1,4 @@
+/*
 package passwordGenerator;
 
 import java.util.Random;
@@ -27,6 +28,7 @@ public class SecretCode {
 			}
 			*/
 			
+/*
 			return l;
 		}
 
@@ -35,6 +37,7 @@ public class SecretCode {
 			// TODO Auto-generated method stub
 			/*return 0;*/
 			//if passwordLength is not within range
+/*
 			if(randomNumber(aSTART, aEND, r) > aEND || randomNumber(aSTART, aEND, r) < aSTART) {
 				//return smallest value specified in randomLength method
 				return aSTART;
@@ -62,6 +65,7 @@ public class SecretCode {
 		*/
 		
 		//------------------VERSIONS 3 & 4---------------------
+/*
 		public static int randomLength() {
 			int START = 2;
 			int END = 3;
@@ -74,13 +78,16 @@ public class SecretCode {
 		 * 1) it formats the app's output to adhere to a specific character limit format.
 		 * 2) it fails to generate a password of random length.
 		 */
+/*
 		private static int randomNumber(int aSTART, int aEND) {
 			/*Random r = new Random();
 			return r.ints(aSTART, (aEND + 1)).limit(1).findFirst().getAsInt();
 			*/
+/*
 			if (aSTART > aEND || aEND < aSTART) {
 				throw new IllegalArgumentException("not within range");
 			}
 			return (int)(Math.random() * ((aEND - aSTART) + 1) + aSTART);
 		}
 }
+*/
