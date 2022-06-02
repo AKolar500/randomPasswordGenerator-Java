@@ -10,9 +10,6 @@ public class TheStage {
 	 * inside the password creation method, using a loop in the main method to throw the value several times
 	 * into the String method
 	 */
-	/*----NEW OBJECTIVE
-	*I want this to become an application that I can use for all my saved passwords. I want to have the ability to choose a password that I want to use, assign it to a certain site (or create an entry for the site if the entry doesn't exist), and call data from the application once it's been saved.
-	*The app should call data from a MySQL database, and integrate a custom UI that I build from scratch.*/
 	//static final int output_password_length = 2;
 	static int output_password_length = randomLength();
 	
